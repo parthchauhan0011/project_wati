@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="contactDetails">
+    <div id="inputsContainer">
+        <label for="name">Name</label>
+        <input class="name" type="text" id="name0" name="name" required>
+        <label for="phone">Phone</label>
+        <input class="phone" type="tel" id="phone0" name="phone" pattern="[0-9]{10}">
+    </div>
+        <button type="button" onclick="addInputFields()">Add Another</button>
+
+        <button id="submitButton" value="submit">Submit Names</button>
+    </form>
+</body>
+<script src="index.js"></script>
+<script>
+    var new_name=1;
+    function addInputFields() {
+  var inputsContainer = document.getElementById('inputsContainer');
+  var inputGroup = document.createElement('div');
+  inputGroup.innerHTML = `
+      <div>
+          <label for="name">Name</label>
+          <input class="name" type="text" name="name" id="name`+new_name+`" required>
+          <label for="phone">Phone Number:</label>
+          <input class="phone" type="tel" id="phone`+new_name+`" name="phone" pattern="[0-9]{10}">
+      </div>
+  `;
+  new_name++;
+  inputsContainer.appendChild(inputGroup);
+}
+</script>
+</html>
